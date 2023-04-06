@@ -264,7 +264,6 @@ class DeformableTransformer(nn.Module):
             
         """
         # prepare input for encoder
-        import pdb;pdb.set_trace()
         src_flatten = []
         mask_flatten = []
         lvl_pos_embed_flatten = []
@@ -321,6 +320,8 @@ class DeformableTransformer(nn.Module):
                 input_hw = self.two_stage_wh_embedding.weight[0]
             else:
                 input_hw = None
+            import pdb;pdb.set_trace()
+            
             output_memory, output_proposals = gen_encoder_output_proposals(memory, mask_flatten, spatial_shapes, input_hw)
             output_memory = self.enc_output_norm(self.enc_output(output_memory))
             
