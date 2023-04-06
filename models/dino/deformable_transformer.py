@@ -264,6 +264,7 @@ class DeformableTransformer(nn.Module):
             
         """
         # prepare input for encoder
+        import pdb;pdb.set_trace()
         src_flatten = []
         mask_flatten = []
         lvl_pos_embed_flatten = []
