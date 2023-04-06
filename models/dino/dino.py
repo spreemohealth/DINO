@@ -292,7 +292,7 @@ class DINO(nn.Module):
         if self.aux_loss:
             out['aux_outputs'] = self._set_aux_loss(outputs_class, outputs_coord_list)
 
-
+        import pdb;pdb.set_trace()
         # for encoder output
         if hs_enc is not None:
             # prepare intermediate outputs

@@ -409,6 +409,7 @@ class DeformableTransformer(nn.Module):
         #########################################################
         # Begin postprocess
         #########################################################     
+        import pdb;pdb.set_trace()
         if self.two_stage_type == 'standard':
             if self.two_stage_keep_all_tokens:
                 hs_enc = output_memory.unsqueeze(0)
