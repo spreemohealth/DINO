@@ -681,7 +681,7 @@ class TransformerDecoder(nn.Module):
             # preprocess ref points
             if self.training and self.decoder_query_perturber is not None and layer_id != 0:
                 reference_points = self.decoder_query_perturber(reference_points)
-
+            import pdb;pdb.set_trace()
             if self.deformable_decoder:
                 if reference_points.shape[-1] == 4:
                     reference_points_input = reference_points[:, :, None] \
