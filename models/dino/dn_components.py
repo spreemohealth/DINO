@@ -29,7 +29,8 @@ def prepare_for_cdn(dn_args, training, num_queries, num_classes, hidden_dim, lab
         :param label_enc: encode labels in dn
         :return:
         """
-    if training:
+    if training: 
+        import pdb;pdb.set_trace()
         targets, dn_number, label_noise_ratio, box_noise_scale = dn_args
         # positive and negative dn queries
         dn_number = dn_number * 2
