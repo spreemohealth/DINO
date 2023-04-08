@@ -267,7 +267,7 @@ class DINO(nn.Module):
         else:
             assert targets is None
             input_query_bbox = input_query_label = attn_mask = dn_meta = None
-        
+
         hs, reference, hs_enc, ref_enc, init_box_proposal = self.transformer(srcs, masks, input_query_bbox, poss,input_query_label,attn_mask)
         # In case num object=0
         hs[0] += self.label_enc.weight[0,0]*0.0
@@ -496,6 +496,8 @@ class SetCriterion(nn.Module):
         if is_dist_avail_and_initialized():
             torch.distributed.all_reduce(num_boxes)
         num_boxes = torch.clamp(num_boxes / get_world_size(), min=1).item()
+
+        import pdb;pdb.set_trace()
 
         # Compute all the requested losses
         losses = {}
