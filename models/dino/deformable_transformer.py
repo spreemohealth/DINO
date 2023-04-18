@@ -521,6 +521,7 @@ class TransformerEncoder(nn.Module):
         if self.two_stage_type in ['no', 'standard', 'enceachlayer', 'enclayer1']:
             assert ref_token_index is None
 
+        import pdb;pdb.set_trace()
         output = src
         # preparation and reshape
         if self.num_layers > 0:

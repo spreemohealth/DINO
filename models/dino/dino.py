@@ -497,7 +497,7 @@ class SetCriterion(nn.Module):
             torch.distributed.all_reduce(num_boxes)
         num_boxes = torch.clamp(num_boxes / get_world_size(), min=1).item()
 
-        import pdb;pdb.set_trace()
+        import pdb; pdb.set_trace()
 
         # Compute all the requested losses
         losses = {}
@@ -768,7 +768,6 @@ def build_dino(args):
     weight_dict['loss_giou'] = args.giou_loss_coef
     clean_weight_dict_wo_dn = copy.deepcopy(weight_dict)
 
-    
     # for DN training
     if args.use_dn:
         weight_dict['loss_ce_dn'] = args.cls_loss_coef
