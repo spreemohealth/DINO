@@ -283,7 +283,6 @@ class DeformableTransformer(nn.Module):
             lvl_pos_embed_flatten.append(lvl_pos_embed)
             src_flatten.append(src)
             mask_flatten.append(mask)
-        import pdb;pdb.set_trace()
         src_flatten = torch.cat(src_flatten, 1)    # bs, \sum{hxw}, c 
         mask_flatten = torch.cat(mask_flatten, 1)   # bs, \sum{hxw}
         lvl_pos_embed_flatten = torch.cat(lvl_pos_embed_flatten, 1) # bs, \sum{hxw}, c 
@@ -521,7 +520,6 @@ class TransformerEncoder(nn.Module):
         if self.two_stage_type in ['no', 'standard', 'enceachlayer', 'enclayer1']:
             assert ref_token_index is None
 
-        import pdb;pdb.set_trace()
         output = src
         # preparation and reshape
         if self.num_layers > 0:
@@ -682,7 +680,6 @@ class TransformerDecoder(nn.Module):
             # preprocess ref points
             if self.training and self.decoder_query_perturber is not None and layer_id != 0:
                 reference_points = self.decoder_query_perturber(reference_points)
-            import pdb;pdb.set_trace()
             if self.deformable_decoder:
                 if reference_points.shape[-1] == 4:
                     reference_points_input = reference_points[:, :, None] \
