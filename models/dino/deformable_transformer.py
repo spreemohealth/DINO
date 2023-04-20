@@ -675,7 +675,7 @@ class TransformerDecoder(nn.Module):
         intermediate = []
         reference_points = refpoints_unsigmoid.sigmoid()
         ref_points = [reference_points]  
-
+        import pdb;pdb.set_trace()
         for layer_id, layer in enumerate(self.layers):
             # preprocess ref points
             if self.training and self.decoder_query_perturber is not None and layer_id != 0:
