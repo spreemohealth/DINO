@@ -348,6 +348,8 @@ class CocoDetection(torchvision.datasets.CocoDetection):
                     Init type: x0,y0,x1,y1. unnormalized data.
                     Final type: cx,cy,w,h. normalized data. 
         """
+        import pdb;pdb.set_trace()
+
         try:
             img, target = super(CocoDetection, self).__getitem__(idx)
         except:
@@ -552,7 +554,6 @@ def make_coco_transforms(image_set, fix_size=False, strong_aug=False, args=None)
 
 
 def get_aux_target_hacks_list(image_set, args):
-    import pdb;pdb.set_trace()
     if args.modelname in ['q2bs_mask', 'q2bs']:
         aux_target_hacks_list = [
             label2compat(), 
