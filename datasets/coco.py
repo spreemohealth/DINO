@@ -552,6 +552,7 @@ def make_coco_transforms(image_set, fix_size=False, strong_aug=False, args=None)
 
 
 def get_aux_target_hacks_list(image_set, args):
+    import pdb;pdb.set_trace()
     if args.modelname in ['q2bs_mask', 'q2bs']:
         aux_target_hacks_list = [
             label2compat(), 
@@ -632,6 +633,7 @@ def build(image_set, args):
         strong_aug = args.strong_aug
     except:
         strong_aug = False
+    import pdb;pdb.set_trace()
     dataset = CocoDetection(img_folder, ann_file, 
             transforms=make_coco_transforms(image_set, fix_size=args.fix_size, strong_aug=strong_aug, args=args), 
             return_masks=args.masks,
